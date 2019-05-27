@@ -7,17 +7,20 @@ class App extends React.Component {
   //資料必須要放在所有會用到該物件上層或更上層
 
   constructor() {
-    super();
-    let todos = ["買牛奶", "繳電話費", "去銀行"];
+    super(); //將父class的this 繼承給子Class使用
+    let todosdata = ["買牛奶", "繳電話費", "去銀行"];
     this.state = {
-      todos: todos
+      //有用到this，就必須有Super
+      todos: todosdata
     };
   }
   createTodo(newtodo) {
+    //把傳進來的文字放進todoData
     this.setState({
       todos: [...this.state.todos, newtodo]
     });
   }
+
   render() {
     return (
       <div className="App">
@@ -27,7 +30,7 @@ class App extends React.Component {
           todos={this.state.todos}
           createTodo={newtodo => this.createTodo(newtodo)} //更新代辦事項清單
         />
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} /> {/*把資料像屬性一樣傳進去*/}
       </div>
     );
   }

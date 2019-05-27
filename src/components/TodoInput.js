@@ -8,6 +8,7 @@ export class TodoInput extends Component {
         placeholder="新增代辦"
         value={this.props.inputText}
         onChange={this.props.updateInputText} //輸入框本身無用，實作上層邏輯
+        onKeyDown={this.props.updateInputTextbyKeydown}
       />
     );
   }

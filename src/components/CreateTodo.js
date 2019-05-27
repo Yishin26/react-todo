@@ -12,9 +12,10 @@ export class CreateTodo extends Component {
   //自訂函示
   createTodo() {
     //操作虛擬DOM，給予輸入框值
-    console.log("Click");
+
     if (this.state.inputText) {
       this.props.createTodo && this.props.createTodo(this.state.inputText);
+      console.log("Send");
       this.setState({ inputText: "" });
     }
   }
@@ -23,12 +24,20 @@ export class CreateTodo extends Component {
       inputText: event.target.value
     });
   }
+  updateInputTextbyKeydown(event) {
+    if (event.keyCode === 13) {
+      this.createTodo();
+    }
+  }
   render() {
     return (
       <div>
         <TodoInput
-          inputText={this.state.inputText}
+          inputText={this.state.inputText} //類似雙向綁定
           updateInputText={event => this.updateInputText(event)}
+          updateInputTextbyKeydown={event =>
+            this.updateInputTextbyKeydown(event)
+          }
         />
         <CreateTodoButtom createTodo={() => this.createTodo()} />
       </div>

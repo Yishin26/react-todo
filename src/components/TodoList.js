@@ -8,6 +8,7 @@ export class TodoList extends Component {
     return (
       <div>
         {/*利用陣列索引值做為唯一值*/}
+        {/*＝this.props.todos.map()*/}
         {todos.map((todo, index) => {
           return <Todo key={index} todo={todo} />;
         })}
