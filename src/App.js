@@ -25,7 +25,7 @@ class App extends React.Component {
         {/*把值傳入Title中*/}
         <CreateTodo
           todos={this.state.todos}
-          createTodo={newtodo => this.createTodo(newtodo)}
+          createTodo={newtodo => this.createTodo(newtodo)} //更新代辦事項清單
         />
         <TodoList todos={this.state.todos} />
       </div>
